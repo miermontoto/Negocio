@@ -20,7 +20,6 @@ reduced_by_variance = [utils.reduce_by_var(dataset, 0.1) for dataset in datasets
 reduced_by_univariate = [utils.reduce_with_univariate(datasets_x[i], datasets_y[i], 2) for i in range(len(datasets_x))]
 
 # Parte 3. Eliminación recursiva de variables
-
 utils.print_shapes(datasets_x, "Original")
 utils.print_shapes(reduced_by_variance, "Reduced by variance")
 utils.print_shapes(reduced_by_univariate, "Reduced by univariate statisticals")

@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
-from sklearn.feature_selection import VarianceThreshold, SelectKBest, chi2
+from sklearn.feature_selection import VarianceThreshold, SelectKBest, chi2, RFECV
+from sklearn.svm import SVC
 
 
 def slice(dataset) -> [pd.DataFrame, pd.DataFrame]:
@@ -37,10 +38,10 @@ def reduce_with_univariate(dataset_x, dataset_y, k) -> pd.DataFrame:
 	return SelectKBest(chi2, k=k).fit_transform(dataset_x, dataset_y)
 
 
-def print_shapes(datasets, msg):
+def reduce_with_rfe(dataset_x, dataset_y):
 	"""
-	:param datasets: list of datasets
-	:return: prints the shape of each dataset
+	:param dataset: dataset
+	:return: the dataset without attributes that are not relevant
 	"""
-	for i in range(len(datasets)):
-		print(f"{msg} {i+1}: {datasets[i].shape}")
+
+	return RFECV(SVC(kernel="linear"), step=1, cv=5).fit_transform(dataset_x, dataset_y)
