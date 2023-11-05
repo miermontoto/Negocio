@@ -9,11 +9,6 @@ from sklearn.metrics import mean_squared_error
 import numpy as np
 import pandas as pd
 
-# boston_dataset = datasets.load_boston()
-# print(boston_dataset.feature_names)
-# X_full = boston_dataset.data
-# Y = boston_dataset.target
-
 data_url = "http://lib.stat.cmu.edu/datasets/boston"
 raw_df = pd.read_csv(data_url, sep="\s+", skiprows=22, header=None)
 X_full = np.hstack([raw_df.values[::2, :], raw_df.values[1::2, :2]])
