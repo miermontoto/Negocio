@@ -1,0 +1,6 @@
+[submodule "entregas/neg-teo-ii"]
+	path = entregas/neg-teo-ii
+	url = https://github.com/miermontoto/neg-teo-ii
+[submodule "PL/neg-prac-ii"]
+	path = PL/neg-prac-ii
+	url = https://github.com/miermontoto/neg-prac-ii
